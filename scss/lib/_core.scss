@@ -33,8 +33,8 @@ h1,h2,h3,h4,h5,h6 {
   #globalheader-container に背景色や文字色を指定することでiframeの中にも色が反映されます。
 */
 #globalheader-container {
-    background-color: $text;
-    color: $background;
+    background-color: $background;
+    color: $text-light;
 }
 
 /* パンくず（カテゴリー、記事ページで表示されます） */
@@ -381,7 +381,7 @@ h1,h2,h3,h4,h5,h6 {
         align-items: center;
     }
     .search-module-input {
-        flex: 1 0;
+        flex: 1 0 auto;
         padding: 5px;
         color: $text;
         background: none;
@@ -455,21 +455,5 @@ h1,h2,h3,h4,h5,h6 {
     .social-buttons {
         display: block;
         margin-top: .3em;
-    }
-}
-
-
-/* footer */
-#footer {
-    margin-top: 2em;
-    padding-bottom: 2rem;
-    text-align: center;
-    font-size: .8rem;
-    color: $text-light;
-    a {
-        color: $text-light;
-    }
-    p {
-        margin: .5em auto;
     }
 }

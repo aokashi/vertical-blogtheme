@@ -1,29 +1,22 @@
-/* container */
-#container,
-#footer {
-    padding-left: 10px;
-    padding-right: 10px;
+/**
+ * container-side は左側に配置する場合に利用する要素に使用します。
+ */
+@mixin container-side {
+    background-color: $bg-light;
+}
+
+@mixin container-side-outside {
+    @include container-side;
     @media #{$mq-sm} {
-        width: 720px;
-        margin: auto;
-        padding-left: 0;
-        padding-right: 0;
+        margin-right: $side-width-sm;
     }
     @media #{$mq-md} {
-        width: 940px;
+        margin-right: $side-width-md;
     }
 }
 
-/* 2カラムレイアウト */
-#content-inner {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    @media #{$mq-sm} {
-        flex-direction: row;
-    }
-}
-#wrapper {
+@mixin container-side-inner {
+    margin: 0 auto;
     @media #{$mq-sm} {
         width: 480px;
     }
@@ -31,27 +24,54 @@
         width: 600px;
     }
 }
-#box2 {
+
+/* 2カラムレイアウト */
+#content-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     @media #{$mq-sm} {
-        width: 200px;
+        flex-direction: row;
+    }
+}
+#wrapper {
+    flex: 1 0 auto;
+    @include container-side;
+    #main {
+        background-color: $bg-white;
+        @include container-side-inner;
+    }
+}
+#box2 {
+    flex: 0 0 auto;
+    margin-top: -$header-height;
+    @media #{$mq-sm} {
+        width: $side-width-sm;
     }
     @media #{$mq-md} {
-        width: 300px;
+        width: $side-width-md;
+    }
+    #box2-inner {
+        padding: $spacing;
     }
 }
 
 /* ヘッダ */
 #blog-title {
-    margin: 2em 0;
+    @include container-side-outside;
     text-align: center;
     @media #{$mq-sm} {
-        margin: 3em 0;
         text-align: left;
+    }
+    #blog-title-inner {
+        height: $header-height;
+        @include container-side-inner;
     }
 }
 #title {
     margin: 0;
     font-size: 1.5rem;
+    text-align: center;
     @media #{$mq-md} {
         font-size: 1.7rem;
     }
@@ -59,10 +79,30 @@
         color: $text;
     }
 }
+#blog-title-content {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+}
 #blog-description {
     font-weight: normal;
     font-size: .8rem;
     margin: 1em 0 0;
+}
+#footer {
+    text-align: center;
+    font-size: .8rem;
+    p {
+        margin: .5em auto;
+    }
+    @media #{$mq-sm} {
+        @include container-side-outside;
+    }
+    #footer-inner {
+        @include container-side-inner;
+    }
 }
 
 /* ヘッダ画像を設定したとき */
