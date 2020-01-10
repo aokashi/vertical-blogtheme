@@ -1,21 +1,16 @@
 /**
  * container-side は左側に配置する場合に利用する要素に使用します。
  */
-@mixin container-side {
-    background-color: $bg-light;
-}
-
-@mixin container-side-outside {
-    @include container-side;
+@mixin side-contents {
     @media #{$mq-sm} {
-        margin-right: $side-width-sm;
+        margin-right: $side-width-sm + $spacing * 2;
     }
     @media #{$mq-md} {
-        margin-right: $side-width-md;
+        margin-right: $side-width-md + $spacing * 2;
     }
 }
 
-@mixin container-side-inner {
+@mixin side-contents-inner {
     margin: 0 auto;
     @media #{$mq-sm} {
         width: 480px;
@@ -23,6 +18,16 @@
     @media #{$mq-md} {
         width: 600px;
     }
+}
+
+/**
+ * コンテンツ背景色の設定
+ *     はてなブログの左サイドの背景色を変更したい場合は、下記セレクタをご利用ください。
+ */
+#blog-title,
+#wrapper,
+#footer {
+    background-color: $bg-contents;
 }
 
 /* 2カラムレイアウト */
@@ -36,15 +41,16 @@
 }
 #wrapper {
     flex: 1 0 auto;
-    @include container-side;
     #main {
+        @include side-contents-inner;
         background-color: $bg-white;
-        @include container-side-inner;
+        color: $text;
     }
 }
 #box2 {
     flex: 0 0 auto;
     margin-top: -$header-height;
+    padding: $spacing;
     @media #{$mq-sm} {
         width: $side-width-sm;
     }
@@ -58,14 +64,27 @@
 
 /* ヘッダ */
 #blog-title {
-    @include container-side-outside;
+    @include side-contents;
     text-align: center;
     @media #{$mq-sm} {
         text-align: left;
     }
     #blog-title-inner {
         height: $header-height;
-        @include container-side-inner;
+        @include side-contents-inner;
+    }
+
+    /* ヘッダ画像を設定したとき */
+    .header-image-enable & {
+        #blog-title-inner {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        #blog-title-content {
+            margin-left: 10px;
+            margin-right: 10px;
+        }
     }
 }
 #title {
@@ -98,26 +117,10 @@
         margin: .5em auto;
     }
     @media #{$mq-sm} {
-        @include container-side-outside;
+        @include side-contents;
     }
     #footer-inner {
-        @include container-side-inner;
-    }
-}
-
-/* ヘッダ画像を設定したとき */
-.header-image-enable {
-    #blog-title {
-        margin: 0 0 2em;
-    }
-    #blog-title-inner {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-    }
-    #blog-title-content {
-        margin-left: 10px;
-        margin-right: 10px;
+        @include side-contents-inner;
     }
 }
 
