@@ -1,30 +1,42 @@
 /**
  * container-side は左側に配置する場合に利用する要素に使用します。
  */
-@mixin side-contents {
+@mixin content-style {
     @media #{$mq-sm} {
-        margin-right: $side-width-sm + $spacing * 2;
+        // width: calc(100vw - (#{$side-width-sm + $spacing * 2}));
+        width: calc(50vw + (#{$content-width-sm} / 4))
     }
     @media #{$mq-md} {
-        margin-right: $side-width-md + $spacing * 2;
+        // width: calc(100vw - (#{$side-width-md + $spacing * 2}));
+        width: calc(50vw + (#{$content-width-md} / 4));
+    }
+    @media #{$mq-lg} {
+        width: calc(50vw + (#{$content-width-lg} / 4));
     }
 }
 
-@mixin side-contents-inner {
-    margin: 0 auto;
+@mixin content-style-inner {
+    margin: 0 0 0 auto;
+    padding: $spacing;
     @media #{$mq-sm} {
-        width: 480px;
+        width: $content-width-sm;
     }
     @media #{$mq-md} {
-        width: 600px;
+        width: $content-width-md;
+    }
+    @media #{$mq-lg} {
+        width: $content-width-lg;
     }
 }
 
 /**
  * コンテンツ背景色の設定
  *     はてなブログの左サイドの背景色を変更したい場合は、下記セレクタをご利用ください。
+ *     Q. .header-image-enable セレクタが含まれているのはなぜ？
+ *     A. ヘッダーに画像を指定した場合に左側面の背景色が消えないようにするためです。
  */
 #blog-title,
+.header-image-enable #blog-title,
 #wrapper,
 #footer {
     background-color: $bg-contents;
@@ -40,38 +52,41 @@
     }
 }
 #wrapper {
-    flex: 1 0 auto;
+    flex: 0 0 auto;
+    @include content-style;
     #main {
-        @include side-contents-inner;
-        background-color: $bg-white;
-        color: $text;
+        @include content-style-inner;
     }
 }
 #box2 {
-    flex: 0 0 auto;
-    margin-top: -$header-height;
-    padding: $spacing;
+    flex: 1 0 auto;
+    margin: $spacing;
     @media #{$mq-sm} {
-        width: $side-width-sm;
-    }
-    @media #{$mq-md} {
-        width: $side-width-md;
+        margin: -$header-height auto 0 $spacing;
     }
     #box2-inner {
-        padding: $spacing;
+        @media #{$mq-sm} {
+            width: $side-width-sm;
+        }
+        @media #{$mq-md} {
+            width: $side-width-md;
+        }
+        @media #{$mq-lg} {
+            padding: $spacing;
+        }
     }
 }
 
 /* ヘッダ */
 #blog-title {
-    @include side-contents;
+    @include content-style;
     text-align: center;
     @media #{$mq-sm} {
         text-align: left;
     }
     #blog-title-inner {
+        @include content-style-inner;
         height: $header-height;
-        @include side-contents-inner;
     }
 
     /* ヘッダ画像を設定したとき */
@@ -80,10 +95,6 @@
             display: flex;
             flex-direction: row;
             align-items: center;
-        }
-        #blog-title-content {
-            margin-left: 10px;
-            margin-right: 10px;
         }
     }
 }
@@ -117,10 +128,10 @@
         margin: .5em auto;
     }
     @media #{$mq-sm} {
-        @include side-contents;
+        @include content-style;
     }
     #footer-inner {
-        @include side-contents-inner;
+        @include content-style-inner;
     }
 }
 

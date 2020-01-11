@@ -4,7 +4,7 @@
 $background: #404040;
 $bg-contents: #e0e0e0;
 $bg-light: #c0c0c0;
-$bg-white: #fff;
+$bg-entry: #fff;
 $bg-dark: #000;
 
 // text color
@@ -33,4 +33,8 @@ $mq-lg: "(min-width: 1200px)";
 $header-height: 160px;
 $side-width-sm: 224px;
 $side-width-md: 324px;
+$content-width-sm: 480px;
+$content-width-md: 600px;
+$content-width-lg: 780px;
 $spacing: 16px;
+$spacing-large: 32px;
