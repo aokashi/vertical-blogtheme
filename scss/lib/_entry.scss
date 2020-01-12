@@ -5,10 +5,17 @@
     background-color: $bg-entry;
     color: $text;
     margin-bottom: 3em;
+    box-sizing: border-box;
     padding: $spacing;
     @media #{$mq-lg} {
         padding: $spacing-large;
     }
+}
+
+@mixin entry-heading {
+    background-color: $bg-entry;
+    border-bottom: 2px solid $border;
+    padding: .25em .5em;
 }
 
 .entry {
@@ -166,6 +173,9 @@
     text-align: center;
 }
 .page-archive {
+    .archive-heading {
+        @include entry-heading;
+    }
     .archive-entry {
         @include entry-style;
         margin-left: auto;
@@ -200,4 +210,9 @@
 /* Search Result */
 .search-result {
     @include entry-style;
+}
+
+/* Breadcrumb */
+.breadcrumb-inner {
+    @include entry-heading;
 }

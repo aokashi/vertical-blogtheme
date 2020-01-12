@@ -20,7 +20,7 @@ $link-light: lighten($link, 10%);
 $hover: darken($link, 10%);
 
 // border
-$border: #ddd;
+$border: #a0a0a0;
 
 // button
 $btn: #fff;
@@ -36,8 +36,36 @@ $mq-lg: "(min-width: 1200px)";
 $header-height: 160px;
 $side-width-sm: 224px;
 $side-width-md: 308px;
-$content-width-sm: 480px;
-$content-width-md: 600px;
-$content-width-lg: 780px;
 $spacing: 16px;
 $spacing-large: 32px;
+
+/**
+ * 左側の内容の横幅を取得します。
+ */
+@function make-content-width($viewport-width, $side-width) {
+    // スクロールバーの幅
+    $scrollbar-width: 24px;
+    $viewport-width-without-scrollbar: $viewport-width - $scrollbar-width;
+    // 右側の横幅を取り除く
+    @return $viewport-width-without-scrollbar - $side-width;
+}
+
+/**
+ * 左側の横幅を取得します。
+ *     このテーマは右側の領域をなるべく広く取るために、画面の半分の幅をベースに、左側の横幅を計算しています。
+ *     左側の横幅を取得するまでには、左側の内容の横幅を割るための率(ratio)が必要です。
+ *     ratio は左側の内容の幅と右側の内容の幅で値が異なるため、ここで計算することになります。
+ */
+@function make-content-outer-width($viewport-width, $content-width) {
+    $half-viewport-diff: $content-width - ($viewport-width / 2);
+    $ratio: $content-width / $half-viewport-diff;
+    @return calc(50vw + #{$content-width / $ratio});
+}
+
+$content-width-sm: make-content-width(768px, $side-width-sm);
+$content-width-md: make-content-width(992px, $side-width-md);
+$content-width-lg: make-content-width(1200px, $side-width-md);
+
+$content-width-outer-sm: make-content-outer-width(768px, $content-width-sm);
+$content-width-outer-md: make-content-outer-width(992px, $content-width-md);
+$content-width-outer-lg: make-content-outer-width(1200px, $content-width-lg);
