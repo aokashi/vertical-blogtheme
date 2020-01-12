@@ -16,6 +16,7 @@ $text-header: #333;
 
 // link
 $link: #1487bd;
+$link-light: lighten($link, 10%);
 $hover: darken($link, 10%);
 
 // border

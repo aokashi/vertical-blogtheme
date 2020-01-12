@@ -4,6 +4,7 @@
 @mixin entry-style {
     background-color: $bg-entry;
     color: $text;
+    margin-bottom: 3em;
     padding: $spacing;
     @media #{$mq-lg} {
         padding: $spacing-large;
@@ -13,7 +14,6 @@
 .entry {
     @include entry-style;
     position: relative;
-    margin-bottom: 4em;
 }
 .entry-header {
     padding-bottom: 1em;
@@ -168,7 +168,6 @@
 .page-archive {
     .archive-entry {
         @include entry-style;
-        margin-bottom: 3em;
         margin-left: auto;
         margin-right: auto;
         line-height: 1.3;
@@ -196,4 +195,9 @@
         display: block;
         margin-top: .3em;
     }
+}
+
+/* Search Result */
+.search-result {
+    @include entry-style;
 }
