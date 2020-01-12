@@ -74,6 +74,10 @@
     flex: 1 0 auto;
     @media #{$mq-sm} {
         margin: -$header-height auto 0 0;
+        .header-image-enable & {
+            // ヘッダー画像が有効になると、ヘッダーの高さは 200px 固定になるため、上にずらす距離も伸ばす。
+            margin: -200px auto 0 0;
+        }
     }
     #box2-inner {
         box-sizing: border-box;
@@ -83,9 +87,9 @@
         @media #{$mq-md} {
             width: $side-width-md;
         }
-        padding: 0 $spacing;
+        padding: $spacing;
         @media #{$mq-lg} {
-            padding: 0 $spacing-large;
+            padding: $spacing-large;
         }
     }
 }
