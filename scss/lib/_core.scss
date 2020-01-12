@@ -1,7 +1,7 @@
 html,
 body {
     font-family: 'Noto Sans CJK JP', 'Yu Gothic', 'YuGothic', 'Hiragino Kaku Gothic ProN', 'Meriyo', sans-serif;
-    color: $text-light;
+    color: $text;
     background-color: $background;
     line-height: 1.6;
 }
@@ -40,56 +40,6 @@ h1,h2,h3,h4,h5,h6 {
 /* パンくず（カテゴリー、記事ページで表示されます） */
 .breadcrumb {
     font-size: .9rem;
-}
-
-/* entry */
-.entry {
-    background-color: $bg-entry;
-    color: $text;
-    position: relative;
-    margin-bottom: 4em;
-    padding: $spacing;
-    @media #{$mq-lg} {
-        padding: $spacing-large;
-    }
-}
-.entry-header {
-    padding-bottom: 1em;
-    margin-bottom: 2em;
-    border-bottom: 1px solid $border;
-    position: relative;
-}
-.date {
-    margin-bottom: .5em;
-    font-size: .9rem;
-    a {
-        color: $text-light;
-        text-decoration: none;
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-}
-.entry-title {
-    margin: 0 0 .3em;
-    font-size: 1.5rem;
-    @media #{$mq-md} {
-        font-size: 1.6rem;
-    }
-}
-.categories {
-    margin: .5em 0;
-    font-size: .9rem;
-    a {
-        margin-right: .5em;
-    }
-}
-
-/* 「編集する」ボタン */
-.entry-header-menu {
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
 /* 記事内の書式 */
@@ -221,80 +171,6 @@ h1,h2,h3,h4,h5,h6 {
     }
 }
 
-/* 記事下 */
-.entry-footer {
-    .social-buttons {
-        margin-bottom: 1em;
-    }
-}
-.entry-footer-section {
-    color: $text-light;
-    font-size: .9rem;
-    a {
-        color: $text-light;
-    }
-}
-
-/* コメント */
-.comment-box {
-    margin: 1em 0;
-    .comment {
-        list-style: none;
-        margin: 0 0 15px 0;
-        padding: 0;
-        line-height: 1.7;
-        font-size: .85rem;
-        @media #{$mq-sm} {
-            font-size: .9rem;
-        }
-    }
-    .entry-comment {
-        padding: 10px 0 10px 60px;
-        border-bottom: 1px solid $border;
-        position: relative;
-        &:first-child {
-            border-top: 1px solid $border;
-        }
-    }
-    .read-more-comments {
-        padding: 10px 0;
-    }
-    .hatena-id-icon {
-        position: absolute;
-        top: 10px;
-        left: 0;
-        width: 50px !important;
-        height: 50px !important;
-        border-radius: 3px;
-    }
-}
-.comment-user-name {
-    margin: 0 0 .4em 0;
-    font-weight: bold;
-}
-.comment-content {
-    margin: 0 0 .4em 0;
-    word-wrap: break-word;
-    color: $text;
-    font-size: .85rem;
-    p {
-        margin: 0 0 .6em 0;
-    }
-}
-.comment-metadata {
-    color: $text-light;
-    margin: 0;
-    font-size: .8rem;
-    a {
-        color: $text-light;
-    }
-}
-.leave-comment-title {
-    padding: .6em 1em;
-    font-size: .85rem;
-    border: 1px solid $border;
-}
-
 /* Pager */
 
 .pager {
@@ -408,56 +284,5 @@ h1,h2,h3,h4,h5,h6 {
         &:hover {
             opacity: .85;
         }
-    }
-}
-
-/* About ページ */
-.page-about {
-    .entry-content {
-        dt {
-            font-weight: bold;
-            border-bottom: 1px solid $border;
-            margin-bottom: .5em;
-        }
-        dd {
-            margin-left: 0;
-            margin-bottom: 2em;
-        }
-    }
-}
-
-/* Archive */
-.archive-header-category {
-    text-align: center;
-}
-.page-archive {
-    .archive-entry {
-        margin-bottom: 3em;
-        margin-left: auto;
-        margin-right: auto;
-        line-height: 1.3;
-    }
-    .entry-title {
-        margin: .3em auto;
-    }
-    .entry-thumb {
-        width: 80px;
-        height: 80px;
-        background-size: cover;
-        @media #{$mq-sm} {
-            width: 120px;
-            height: 120px;
-        }
-    }
-    .entry-description {
-        margin: 0;
-        font-size: .85rem;
-        @media #{$mq-sm} {
-            font-size: .9rem;
-        }
-    }
-    .social-buttons {
-        display: block;
-        margin-top: .3em;
     }
 }

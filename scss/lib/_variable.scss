@@ -2,14 +2,16 @@
 
 // Background color
 $background: #404040;
-$bg-contents: #e0e0e0;
-$bg-light: #c0c0c0;
+$bg-contents: #b0b0b0;
+$bg-light: #e0e0e0;
+$bg-gray: #a0a0a0;
 $bg-entry: #fff;
 $bg-dark: #000;
 
 // text color
 $text: #454545;
 $text-light: #e0e0e0;
+$text-gray: #808080;
 $text-header: #333;
 
 // link
@@ -32,7 +34,7 @@ $mq-lg: "(min-width: 1200px)";
 // Layout
 $header-height: 160px;
 $side-width-sm: 224px;
-$side-width-md: 324px;
+$side-width-md: 308px;
 $content-width-sm: 480px;
 $content-width-md: 600px;
 $content-width-lg: 780px;

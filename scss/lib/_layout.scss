@@ -1,13 +1,11 @@
 /**
- * container-side は左側に配置する場合に利用する要素に使用します。
+ * content-style は左側に配置する場合に利用する要素に使用します。
  */
 @mixin content-style {
     @media #{$mq-sm} {
-        // width: calc(100vw - (#{$side-width-sm + $spacing * 2}));
         width: calc(50vw + (#{$content-width-sm} / 4))
     }
     @media #{$mq-md} {
-        // width: calc(100vw - (#{$side-width-md + $spacing * 2}));
         width: calc(50vw + (#{$content-width-md} / 4));
     }
     @media #{$mq-lg} {
@@ -37,9 +35,19 @@
  */
 #blog-title,
 .header-image-enable #blog-title,
+#top-box,
 #wrapper,
 #footer {
     background-color: $bg-contents;
+}
+
+/**
+ * 右サイド文字色の設定
+ *     はてなブログの右サイトの文字色を変更したい場合は、下記セレクタをご利用ください。
+ *     特に背景色が明るい場合は、暗い文字色に設定することをおすすめします。
+ */
+#box2 {
+    color: $text-light;
 }
 
 /* 2カラムレイアウト */
@@ -120,6 +128,12 @@
     font-weight: normal;
     font-size: .8rem;
     margin: 1em 0 0;
+}
+#top-box {
+    @include content-style;
+    .breadcrumb {
+        @include content-style-inner;
+    }
 }
 #footer {
     text-align: center;
