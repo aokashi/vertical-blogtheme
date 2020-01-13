@@ -114,6 +114,7 @@
     }
     #blog-title-inner {
         @include content-style-inner;
+        background-color: $bg-gray;
         height: $header-height;
     }
 }

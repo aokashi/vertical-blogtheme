@@ -95,8 +95,9 @@
     margin: .5em 0;
     padding: .25em 0;
     font-size: .9rem;
-    a {
+    .entry-category-link {
         @include label-link;
+        display: inline-block;
     }
 }
 
