@@ -54,4 +54,6 @@ vertical-blogtheme/
 ```
 
 ## ライセンス
-このCSSおよびSCSSファイルはMITライセンスのもと自由に複製・再配布できます。 記事本文の書式やコメント欄のスタイルなど、必要な部分だけをコピーして使ってもかまいません。 このデザインテーマをもとにしたテーマの配布も自由です。
+このテーマのライセンスは CC BY 2.1 JP に従います。本テーマのすべてあるいは一部を使用する場合は、本テーマのクレジットの表記が必要です。
+
+<a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/2.1/jp/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by/2.1/jp/">クリエイティブ・コモンズ 表示 2.1 日本 ライセンス</a>の下に提供されています。
