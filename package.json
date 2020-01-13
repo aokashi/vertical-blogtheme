@@ -1,8 +1,9 @@
 {
-  "name": "hatena-blog-theme-boilerplate",
-  "version": "2.0.0",
-  "description": "Boilerplate for Hatena Blog theme",
-  "author": "Hatena Blog",
+  "name": "vertical-blogtheme",
+  "version": "1.0.0",
+  "description": "Vertical Background Blog Theme",
+  "author": "aokashi",
+  "repository": "https://github.com/aokashi/vertical-blogtheme",
   "license": "MIT",
   "scripts": {
     "prestart": "npm run build",
