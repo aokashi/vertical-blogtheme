@@ -36,10 +36,13 @@ $mq-sm: "(min-width: 768px)";
 $mq-md: "(min-width: 992px)";
 $mq-lg: "(min-width: 1200px)";
 
+// スクロールバーの幅 (目安)
+$scrollbar-width: 24px;
+
 // Layout
 $header-height: 160px;
 $header-height-with-image: 200px;
-$top-box-height: 38px;
+$top-box-height: 28px + $scrollbar-width;
 $side-width-sm: 224px;
 $side-width-md: 308px;
 $spacing: 16px;
@@ -50,8 +53,6 @@ $spacing-large: 32px;
  * 左側の内容の横幅を取得します。
  */
 @function make-content-width($viewport-width, $side-width) {
-    // スクロールバーの幅
-    $scrollbar-width: 24px;
     $viewport-width-without-scrollbar: $viewport-width - $scrollbar-width;
     // サイドバーの横幅を取り除く
     @return $viewport-width-without-scrollbar - $side-width;
