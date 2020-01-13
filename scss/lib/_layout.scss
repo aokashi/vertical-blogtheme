@@ -13,10 +13,10 @@
     }
 }
 
-@mixin content-style-inner {
+@mixin content-style-inner($spacing-width: $spacing) {
     box-sizing: border-box;
     margin: 0 0 0 auto;
-    padding: $spacing;
+    padding: $spacing-width;
     @media #{$mq-sm} {
         width: $content-width-sm;
     }
@@ -36,7 +36,6 @@
  */
 #blog-title,
 .header-image-enable #blog-title,
-#top-box,
 #wrapper,
 #footer {
     background-color: $bg-contents;
@@ -66,6 +65,9 @@
 #wrapper {
     flex: 0 0 auto;
     @include content-style;
+    @media #{$mq-sm} {
+        padding-top: $top-box-height; // position: absolute となった #top-box の高さを確保
+    }
     #main {
         @include content-style-inner;
     }
@@ -76,7 +78,7 @@
         margin: -$header-height auto 0 0;
         .header-image-enable & {
             // ヘッダー画像が有効になると、ヘッダーの高さは 200px 固定になるため、上にずらす距離も伸ばす。
-            margin: -200px auto 0 0;
+            margin-top: -$header-height-with-image;
         }
     }
     #box2-inner {
@@ -92,6 +94,11 @@
             padding: $spacing-large;
         }
     }
+}
+
+/* コンテナ */
+#container-inner {
+    position: relative;
 }
 
 /* ヘッダ */
@@ -140,8 +147,24 @@
 }
 #top-box {
     @include content-style;
+    @media #{$mq-sm} {
+        /**
+         * #top-box は #blog-title と #content の中間に位置し、パンくずリストの有無でなかったりする場合があります。
+         *     右側のメニューの縦位置調整は、 #top-box が無い場合を想定としていて、ある場合だとその #top-box の分下にズレます。
+         *     ページ毎で位置がズレることの無いように、ここで絶対座標に指定して、メニューの配置を調整しています。
+         */
+        position: absolute;
+        top: $header-height;
+        .header-image-enable & {
+            top: $header-height-with-image;
+        }
+    }
     .breadcrumb {
-        @include content-style-inner;
+        @include content-style-inner($spacing-small);
+        height: $top-box-height;
+        background-color: $bg-light;
+        overflow-x: auto;
+        white-space: nowrap;
     }
 }
 #footer {

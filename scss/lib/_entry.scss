@@ -48,6 +48,21 @@
     }
 }
 
+@mixin label-style {
+    background-color: $bg-light;
+    margin: 0 .5em;
+    padding: .25em .5em;
+    border-radius: .25em;
+}
+
+@mixin label-link {
+    @include label-style;
+    text-decoration: none;
+    &:hover {
+        background-color: $bg-gray;
+    }
+}
+
 .entry {
     @include entry-style;
     position: relative;
@@ -81,14 +96,7 @@
     padding: .25em 0;
     font-size: .9rem;
     a {
-        background-color: $bg-light;
-        margin: 0 .5em;
-        padding: .25em .5em;
-        border-radius: .25em;
-        text-decoration: none;
-        &:hover {
-            background-color: $bg-gray;
-        }
+        @include label-link;
     }
 }
 
@@ -265,6 +273,11 @@
 }
 
 /* Breadcrumb */
-.breadcrumb-inner {
-    @include entry-heading;
+.breadcrumb-child {
+    @include label-style;
+}
+
+.breadcrumb-link,
+.breadcrumb-child-link {
+    @include label-link;
 }
