@@ -143,11 +143,7 @@
     }
     .entry-comment {
         padding: $spacing 0 $spacing 60px;
-        border-bottom: 1px solid $border;
         position: relative;
-        &:first-child {
-            border-top: 1px solid $border;
-        }
     }
     .read-more-comments {
         padding: 10px 0;
