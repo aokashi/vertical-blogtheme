@@ -27,13 +27,14 @@
     }
     h2 {
         font-size: 1.4rem;
+        border-bottom: 2px solid $border;
         @media #{$mq-md} {
             font-size: 1.5rem;
         }
     }
     h3 {
         font-size: 1.2rem;
-        border-bottom: 2px solid $border;
+        border-left: 1em solid $border;
         @media #{$mq-md} {
             font-size: 1.3rem;
         }

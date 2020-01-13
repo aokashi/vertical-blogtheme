@@ -13,6 +13,10 @@
     }
 }
 
+/**
+ * content-style-inner は content-style の中身の要素の使用します。
+ *     $spacing-width で余白のサイズを指定できます。
+ */
 @mixin content-style-inner($spacing-width: $spacing) {
     box-sizing: border-box;
     margin: 0 0 0 auto;
@@ -161,9 +165,11 @@
     }
     .breadcrumb {
         @include content-style-inner($spacing-small);
+        font-size: .9rem;
         height: $top-box-height;
         background-color: $bg-light;
         overflow-x: auto;
+        overflow-y: hidden;
         white-space: nowrap;
     }
 }
