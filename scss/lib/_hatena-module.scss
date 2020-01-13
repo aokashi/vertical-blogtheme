@@ -10,6 +10,9 @@
     .hatena-module {
         background-color: rgba(0, 0, 0, .375);
         padding: $spacing-small;
+        @media #{$mq-lg} {
+            padding: $spacing;
+        }
     }
 }
 
@@ -60,7 +63,7 @@
     li {
         background: transparent url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cdefs%3E%3Cstyle%3E.p%7Bfill:none;stroke:#{encode-color-code($border-light)};stroke-width:4px;%7D.a%7Bfill:none;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3Esearch%3C/title%3E%3Cpath class='p' d='M 1 1 L 8.5 8.5 L 1 16'/%3E%3Crect class='a' width='18' height='18'/%3E%3C/svg%3E") no-repeat right center;
         background-size: 18px 18px;
-        padding: .5em 18px .5em .5em;
+        padding: .5em calc(18px + .5em) .5em .5em;
         border-top: 1px solid $border-light;
         &:hover {
             background-color: rgba(255, 255, 255, .125);

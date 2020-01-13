@@ -69,9 +69,6 @@
             width: $side-width-md;
         }
         padding: $spacing;
-        @media #{$mq-lg} {
-            padding: $spacing-large;
-        }
     }
 }
 
