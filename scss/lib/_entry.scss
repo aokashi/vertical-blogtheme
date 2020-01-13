@@ -29,10 +29,10 @@
     @include entry-button;
     background-color: $bg-light;
     color: inherit;
-    border-bottom: 2px solid $border;
+    border: 2px solid transparent;
     
     &:hover {
-        background-color: $bg-gray;
+        border-color: $border;
     }
 }
 
@@ -52,6 +52,7 @@
     background-color: $bg-light;
     margin: 0 .5em;
     padding: .25em .5em;
+    border: 2px solid transparent;
     border-radius: .25em;
 }
 
@@ -59,7 +60,7 @@
     @include label-style;
     text-decoration: none;
     &:hover {
-        background-color: $bg-gray;
+        border-color: $border;
     }
 }
 
@@ -95,7 +96,8 @@
     margin: .5em 0;
     padding: .25em 0;
     font-size: .9rem;
-    .entry-category-link {
+    .entry-category-link,
+    .archive-category-link {
         @include label-link;
         display: inline-block;
     }
