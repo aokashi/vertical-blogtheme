@@ -116,15 +116,6 @@
         @include content-style-inner;
         height: $header-height;
     }
-
-    /* ヘッダ画像を設定したとき */
-    .header-image-enable & {
-        #blog-title-inner {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-        }
-    }
 }
 #title {
     margin: 0;
@@ -143,6 +134,9 @@
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
+    .header-image-enable & {
+        justify-content: flex-end;
+    }
 }
 #blog-description {
     font-weight: normal;
