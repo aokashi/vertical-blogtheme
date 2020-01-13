@@ -32,31 +32,6 @@
     }
 }
 
-/**
- * コンテンツ背景色の設定
- *     はてなブログの左サイドの背景色を変更したい場合は、下記セレクタをご利用ください。
- *     Q. .header-image-enable セレクタが含まれているのはなぜ？
- *     A. ヘッダーに画像を指定した場合に左側面の背景色が消えないようにするためです。
- */
-#blog-title,
-.header-image-enable #blog-title,
-#wrapper,
-#footer {
-    background-color: $bg-contents;
-}
-
-/**
- * 右サイド文字色の設定
- *     はてなブログの右サイトの文字色を変更したい場合は、下記セレクタをご利用ください。
- *     特に背景色が明るい場合は、暗い文字色に設定することをおすすめします。
- */
-#box2 {
-    color: $text-light;
-    a {
-        color: $link-light;
-    }
-}
-
 /* 2カラムレイアウト */
 #content-inner {
     display: flex;
@@ -114,7 +89,6 @@
     }
     #blog-title-inner {
         @include content-style-inner;
-        background-color: $bg-gray;
         height: $header-height;
     }
 }
