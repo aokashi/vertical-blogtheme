@@ -251,7 +251,8 @@
 .pager {
     margin: 2em 0;
     display: grid;
-    grid-template-columns: 1fr 1rem 1fr;
+    grid-template: "prev next" auto / 1fr 1fr;
+    grid-gap: 1rem;
 
     .pager-prev,
     .pager-next {
@@ -261,11 +262,11 @@
         }
     }
     .pager-prev {
-        grid-column: 1;
+        grid-area: prev;
         text-align: left;
     }
     .pager-next {
-        grid-column: 3;
+        grid-area: next;
         text-align: right;
     }
 }
