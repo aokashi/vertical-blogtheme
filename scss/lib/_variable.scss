@@ -53,15 +53,15 @@ $spacing-large: 32px;
     // スクロールバーの幅
     $scrollbar-width: 24px;
     $viewport-width-without-scrollbar: $viewport-width - $scrollbar-width;
-    // 右側の横幅を取り除く
+    // サイドバーの横幅を取り除く
     @return $viewport-width-without-scrollbar - $side-width;
 }
 
 /**
  * 左側の横幅を取得します。
- *     このテーマは右側の領域をなるべく広く取るために、画面の半分の幅をベースに、左側の横幅を計算しています。
+ *     このテーマは右側のサイドバーをなるべく広く取るために、画面の半分の幅をベースに、左側の横幅を計算しています。
  *     左側の横幅を取得するまでには、左側の内容の横幅を割るための率(ratio)が必要です。
- *     ratio は左側の内容の幅と右側の内容の幅で値が異なるため、ここで計算することになります。
+ *     ratio はコンテンツとサイドバーの内側の幅で値が異なるため、ここで計算することになります。
  */
 @function make-content-outer-width($viewport-width, $content-width) {
     $half-viewport-diff: $content-width - ($viewport-width / 2);
