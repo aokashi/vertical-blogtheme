@@ -1,0 +1,283 @@
+/**
+ * entry-style は左側に配置するものの中で、投稿が含まれている要素に使用します。
+ */
+@mixin entry-style {
+    background-color: $bg-entry;
+    color: $text;
+    margin-bottom: 3em;
+    box-sizing: border-box;
+    padding: $spacing;
+    @media #{$mq-lg} {
+        padding: $spacing-large;
+    }
+}
+
+@mixin entry-heading {
+    background-color: $bg-entry;
+    border-bottom: 2px solid $border;
+    padding: .25em .5em;
+}
+
+@mixin entry-button {
+    font-weight: 700;
+    border-radius: 4px;
+    text-decoration: none;
+    padding: 6px 14px;
+}
+
+@mixin original-button {
+    @include entry-button;
+    background-color: $bg-light;
+    color: inherit;
+    border: 2px solid transparent;
+    
+    &:hover {
+        border-color: $border;
+    }
+}
+
+@mixin hatena-button {
+    @include entry-button;
+    background-color: $button;
+    color: $button-color;
+    border: 1px solid transparent;
+
+    &:hover {
+        background-color: $button-hover;
+        color: $button-color;
+    }
+}
+
+@mixin label-style {
+    background-color: $bg-light;
+    margin: 0 .5em;
+    padding: .25em .5em;
+    border: 2px solid transparent;
+    border-radius: .25em;
+}
+
+@mixin label-link {
+    @include label-style;
+    text-decoration: none;
+    &:hover {
+        border-color: $border;
+    }
+}
+
+.entry {
+    @include entry-style;
+    position: relative;
+}
+.entry-header {
+    padding-bottom: 1em;
+    margin-bottom: 2em;
+    border-bottom: 1px solid $border;
+    position: relative;
+}
+.date {
+    margin-bottom: .5em;
+    font-size: .9rem;
+    a {
+        color: $text-gray;
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.entry-title {
+    margin: 0 0 .3em;
+    font-size: 1.5rem;
+    @media #{$mq-md} {
+        font-size: 1.6rem;
+    }
+}
+.categories {
+    margin: .5em 0;
+    padding: .25em 0;
+    font-size: .9rem;
+    .entry-category-link,
+    .archive-category-link {
+        @include label-link;
+        display: inline-block;
+    }
+}
+
+/* 「編集する」ボタン */
+.entry-header-menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    a {
+        @include hatena-button;
+        font-size: .85rem;
+    }
+}
+
+/* 記事下 */
+.entry-footer {
+    .social-buttons {
+        margin-bottom: 1em;
+    }
+}
+.entry-footer-section {
+    color: $text-gray;
+    font-size: .9rem;
+    a {
+        color: $text-gray;
+    }
+}
+
+/* コメント */
+.comment-box {
+    margin: $spacing 0;
+    .comment {
+        list-style: none;
+        margin: 0 0 15px 0;
+        padding: 0;
+        line-height: 1.7;
+        font-size: .85rem;
+        @media #{$mq-sm} {
+            font-size: .9rem;
+        }
+    }
+    .entry-comment {
+        padding: $spacing 0 $spacing 60px;
+        position: relative;
+    }
+    .read-more-comments {
+        padding: 10px 0;
+    }
+    .hatena-id-icon {
+        position: absolute;
+        // .comment-user-name(line-height) + .entry-comment(padding) + .comment-user-name(margin)
+        top: calc(1rem + #{$spacing + $spacing-small});
+        left: 0;
+        width: $hatena-icon-width !important;
+        height: $hatena-icon-height !important;
+        border-radius: 3px;
+    }
+}
+.comment-user-name {
+    margin: 0 $spacing-small $spacing-small;
+    line-height: 1rem;
+    font-weight: bold;
+}
+.comment-content {
+    background-color: $bg-light;
+    padding: 1em;
+    margin: 0 0 .4em 0;
+    border-radius: .5em;
+    word-wrap: break-word;
+    color: $text;
+    font-size: .85rem;
+    p {
+        margin: 0 0 .6em 0;
+    }
+}
+.comment-metadata {
+    color: $text-gray;
+    margin: 0;
+    font-size: .8rem;
+    a {
+        color: $text-gray;
+    }
+}
+.leave-comment-title {
+    @include hatena-button;
+    font-size: .85rem;
+}
+
+/* About ページ */
+.page-about {
+    .entry-content {
+        dt {
+            font-weight: bold;
+            border-bottom: 1px solid $border;
+            margin-bottom: .5em;
+        }
+        dd {
+            margin-left: 0;
+            margin-bottom: 2em;
+        }
+    }
+}
+
+/* Archive */
+.archive-header-category {
+    text-align: center;
+}
+.page-archive {
+    .archive-heading {
+        @include entry-heading;
+    }
+    .archive-entry {
+        @include entry-style;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.3;
+    }
+    .entry-title {
+        margin: .3em auto;
+    }
+    .entry-thumb {
+        width: 80px;
+        height: 80px;
+        background-size: cover;
+        @media #{$mq-sm} {
+            width: 120px;
+            height: 120px;
+        }
+    }
+    .entry-description {
+        margin: 0;
+        font-size: .85rem;
+        @media #{$mq-sm} {
+            font-size: .9rem;
+        }
+    }
+    .social-buttons {
+        display: block;
+        margin-top: .3em;
+    }
+}
+
+/* Pager */
+
+.pager {
+    margin: 2em 0;
+    display: grid;
+    grid-template: "prev next" auto / 1fr 1fr;
+    grid-gap: 1rem;
+
+    .pager-prev,
+    .pager-next {
+        a {
+            @include original-button;
+            display: block;
+        }
+    }
+    .pager-prev {
+        grid-area: prev;
+        text-align: left;
+    }
+    .pager-next {
+        grid-area: next;
+        text-align: right;
+    }
+}
+
+/* Search Result */
+.search-result {
+    @include entry-style;
+}
+
+/* Breadcrumb */
+.breadcrumb-child {
+    @include label-style;
+}
+
+.breadcrumb-link,
+.breadcrumb-child-link {
+    @include label-link;
+}

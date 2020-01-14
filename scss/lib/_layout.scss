@@ -1,0 +1,159 @@
+/**
+ * content-style は左側に配置する場合に利用する要素に使用します。
+ */
+@mixin content-style {
+    @media #{$mq-sm} {
+        width: $content-width-outer-sm;
+    }
+    @media #{$mq-md} {
+        width: $content-width-outer-md;
+    }
+    @media #{$mq-lg} {
+        width: $content-width-outer-lg;
+    }
+}
+
+/**
+ * content-style-inner は content-style の中身の要素の使用します。
+ *     $spacing-width で余白のサイズを指定できます。
+ */
+@mixin content-style-inner($spacing-width: $spacing) {
+    box-sizing: border-box;
+    margin: 0 0 0 auto;
+    padding: $spacing-width;
+    @media #{$mq-sm} {
+        width: $content-width-sm;
+    }
+    @media #{$mq-md} {
+        width: $content-width-md;
+    }
+    @media #{$mq-lg} {
+        width: $content-width-lg;
+    }
+}
+
+/* 2カラムレイアウト */
+#content-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    @media #{$mq-sm} {
+        flex-direction: row;
+    }
+}
+#wrapper {
+    flex: 0 0 auto;
+    @include content-style;
+    @media #{$mq-sm} {
+        padding-top: $top-box-height; // position: absolute となった #top-box の高さを確保
+    }
+    #main {
+        @include content-style-inner;
+    }
+}
+#box2 {
+    flex: 1 0 auto;
+    @media #{$mq-sm} {
+        margin: -$header-height auto 0 0;
+        .header-image-enable & {
+            // ヘッダー画像が有効になると、ヘッダーの高さは 200px 固定になるため、上にずらす距離も伸ばす。
+            margin-top: -$header-height-with-image;
+        }
+    }
+    #box2-inner {
+        box-sizing: border-box;
+        @media #{$mq-sm} {
+            width: $side-width-sm;
+        }
+        @media #{$mq-md} {
+            width: $side-width-md;
+        }
+        padding: $spacing;
+    }
+}
+
+/* コンテナ */
+#container-inner {
+    position: relative;
+}
+
+/* ヘッダ */
+#blog-title {
+    @include content-style;
+    text-align: center;
+    @media #{$mq-sm} {
+        text-align: left;
+    }
+    #blog-title-inner {
+        @include content-style-inner;
+        height: $header-height;
+    }
+}
+#title {
+    margin: 0;
+    font-size: 1.5rem;
+    text-align: center;
+    @media #{$mq-md} {
+        font-size: 1.7rem;
+    }
+    a {
+        color: $text;
+    }
+}
+#blog-title-content {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    .header-image-enable & {
+        justify-content: flex-end;
+    }
+}
+#blog-description {
+    font-weight: normal;
+    font-size: .8rem;
+    margin: 1em 0 0;
+}
+#top-box {
+    @include content-style;
+    @media #{$mq-sm} {
+        /**
+         * #top-box は #blog-title と #content の中間に位置し、パンくずリストの有無でなかったりする場合があります。
+         *     サイドバーの縦位置調整は、 #top-box が無い場合を想定としていて、ある場合だとその #top-box の分下にズレます。
+         *     ページ毎で位置がズレることの無いように、ここで絶対座標に指定して、メニューの配置を調整しています。
+         */
+        position: absolute;
+        top: $header-height;
+        .header-image-enable & {
+            top: $header-height-with-image;
+        }
+    }
+    .breadcrumb {
+        @include content-style-inner($spacing-small);
+        font-size: .9rem;
+        height: $top-box-height;
+        background-color: $bg-light;
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+    }
+}
+#footer {
+    text-align: center;
+    font-size: .8rem;
+    p {
+        margin: .5em auto;
+    }
+    @media #{$mq-sm} {
+        @include content-style;
+    }
+    #footer-inner {
+        @include content-style-inner;
+    }
+}
+
+/* タイトル下HTML */
+#top-editarea {
+    margin-bottom: 1em;
+}

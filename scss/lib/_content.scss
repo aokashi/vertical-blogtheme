@@ -1,0 +1,154 @@
+/* 記事内の書式 */
+.entry-content {
+    img,
+    video {
+        max-width: 100%;
+        height: auto;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 1em 0 0.8em 0;
+    }
+    h1,
+    h2,
+    h3 {
+        padding: .25em .5em;
+    }
+    h1 {
+        background-color: $bg-light;
+        border: 1px solid $border;
+        font-size: 1.5rem;
+        @media #{$mq-md} {
+            font-size: 1.7rem;
+        }
+    }
+    h2 {
+        font-size: 1.4rem;
+        border-bottom: 2px solid $border;
+        @media #{$mq-md} {
+            font-size: 1.5rem;
+        }
+    }
+    h3 {
+        font-size: 1.2rem;
+        border-left: 1em solid $border;
+        @media #{$mq-md} {
+            font-size: 1.3rem;
+        }
+    }
+    h4 {
+        font-size: 1.1rem;
+    }
+    h5 {
+        font-size: 1rem;
+    }
+    h6 {
+        font-size: .9rem;
+    }
+    ul,
+    ol,
+    dd {
+        margin: 0 0 1em 1.5em;
+        padding: 0;
+        li {
+            ul,ol {
+                margin-bottom: 0;
+            }
+        }
+    }
+    dt {
+        font-weight: bold;
+    }
+    table {
+        border-collapse: collapse;
+        border-spacing: 0;
+        border-bottom: 1em;
+        margin-bottom: 1em;
+        width: 100%;
+        overflow: auto;
+        display: block;
+        font-size: .8rem;
+        @media #{$mq-md} {
+            font-size: .9rem;
+        }
+    }
+    table th,
+    table td {
+        border: 1px solid $border;
+        padding: 5px 10px;
+    }
+    table th {
+        background: $bg-light;
+    }
+
+    blockquote {
+        background-color: $bg-light;
+        border-left: .25em solid $border;
+        margin: 0 0 $spacing;
+        padding: 20px;
+        p:first-child {
+            margin-top: 0;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+    }
+    pre,
+    code {
+        font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+    }
+    pre {
+        background: $bg-dark;
+        color: $text-light;
+        border: none;
+        white-space: pre-wrap;
+        text-overflow: ellipsis;
+        font-size: 100%;
+        line-height: 1.3;
+        font-size: .8rem;
+        padding: $spacing;
+        & > code {
+            margin: 0;
+            padding: 0;
+            white-space: pre;
+            border: none;
+            background-color: transparent;
+            font-family: 'Monaco', 'Consolas', 'Courier New', Courier, monospace, sans-serif;
+        }
+    }
+    code {
+        font-size: 90%;
+        margin: 0 2px;
+        padding: 0px 5px;
+        background-color: $bg-light;
+        border-radius: 3px;
+    }
+    hr {
+        width: 50%;
+        border: 0;
+        border: none;
+        border-top: 1px solid $border;
+        margin: 2em auto;
+    }
+    .table-of-contents {
+        background-color: $bg-light;
+        border-top: 2px solid $border;
+        padding: 2.5em 1em 1em 2.5em;
+        margin: 1em 0;
+        font-size: .85em;
+        position: relative;
+        &:before {
+            content: "目次";
+            font-weight: bold;
+            font-size: 1rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            padding: .25em .5em;
+        }
+    }
+}
