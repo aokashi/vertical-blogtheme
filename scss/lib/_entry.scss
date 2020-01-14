@@ -114,6 +114,11 @@
     }
 }
 
+/* 続きを読む */
+.entry-see-more {
+    @include original-button;
+}
+
 /* 記事下 */
 .entry-footer {
     .social-buttons {
