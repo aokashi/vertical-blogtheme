@@ -63,9 +63,11 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 /**
- * ヘッダーの背景色の設定
+ * ヘッダーの背景色とフッター背景色の設定
  *     ヘッダー画像を設定しない場合の背景色を変更したい場合は、下記セレクタをご利用ください。
+ *     この背景色はフッターも対象です。
  */
-#blog-title-inner {
+#blog-title-inner,
+#footer-inner {
     background-color: $bg-light;
 }

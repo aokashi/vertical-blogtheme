@@ -145,6 +145,12 @@
     p {
         margin: .5em auto;
     }
+    a {
+        text-decoration: none;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
     @media #{$mq-sm} {
         @include content-style;
     }
