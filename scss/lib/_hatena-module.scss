@@ -36,6 +36,13 @@
         }
     }
 }
+.hatena-module-body {
+    .archive-module-hide-button,
+    .archive-module-show-button {
+        font-size: .75rem;
+        margin-right: .125rem;
+    }
+}
 
 /* Profile module */
 .hatena-module-profile {
@@ -122,5 +129,12 @@
         &:hover {
             opacity: .85;
         }
+    }
+}
+
+/* Recent comments module */
+.hatena-module-recent-comments {
+    .user-id {
+        display: block;
     }
 }

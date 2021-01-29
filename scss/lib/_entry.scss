@@ -6,16 +6,20 @@
     color: $text;
     margin-bottom: 3em;
     box-sizing: border-box;
-    padding: $spacing;
-    @media #{$mq-lg} {
-        padding: $spacing-large;
-    }
+    overflow-wrap: break-word;
 }
 
 @mixin entry-heading {
     background-color: $bg-entry;
     border-bottom: 2px solid $border;
     padding: .25em .5em;
+}
+
+@mixin entry-spacing {
+    padding: $spacing;
+    @media #{$mq-lg} {
+        padding: $spacing-large;
+    }
 }
 
 @mixin entry-button {
@@ -69,8 +73,7 @@
     position: relative;
 }
 .entry-header {
-    padding-bottom: 1em;
-    margin-bottom: 2em;
+    @include entry-spacing;
     border-bottom: 1px solid $border;
     position: relative;
 }
@@ -88,6 +91,7 @@
 .entry-title {
     margin: 0 0 .3em;
     font-size: 1.5rem;
+    font-weight: 900;
     @media #{$mq-md} {
         font-size: 1.6rem;
     }
@@ -106,16 +110,27 @@
 /* 「編集する」ボタン */
 .entry-header-menu {
     position: absolute;
-    top: 0;
-    right: 0;
+    top: $spacing;
+    right: $spacing;
     a {
         @include hatena-button;
         font-size: .85rem;
     }
 }
 
+/* 記事の内容 */
+.entry-content {
+    @include entry-spacing;
+}
+
+/* 続きを読む */
+.entry-see-more {
+    @include original-button;
+}
+
 /* 記事下 */
 .entry-footer {
+    @include entry-spacing;
     .social-buttons {
         margin-bottom: 1em;
     }
