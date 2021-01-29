@@ -228,6 +228,7 @@
     }
     .archive-entry {
         @include entry-style;
+        @include entry-spacing;
         margin-left: auto;
         margin-right: auto;
         line-height: 1.3;
