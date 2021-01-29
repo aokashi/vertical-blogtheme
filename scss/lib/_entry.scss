@@ -6,6 +6,7 @@
     color: $text;
     margin-bottom: 3em;
     box-sizing: border-box;
+    overflow-wrap: break-word;
     padding: $spacing;
     @media #{$mq-lg} {
         padding: $spacing-large;
@@ -88,6 +89,7 @@
 .entry-title {
     margin: 0 0 .3em;
     font-size: 1.5rem;
+    font-weight: 900;
     @media #{$mq-md} {
         font-size: 1.6rem;
     }
