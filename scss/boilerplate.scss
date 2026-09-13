@@ -10,22 +10,19 @@
 */
 
 // import normalize
-@import "node_modules/normalize.css/normalize";
-
-// import variable
-@import "lib/_variable";
+@use "normalize.css";
 
 // import core
-@import "lib/_core";
+@use "lib/_core";
 
 // import layout
-@import "lib/layout";
+@use "lib/layout";
 
 // import entry
-@import "lib/entry";
+@use "lib/entry";
 
 // import content
-@import "lib/content";
+@use "lib/content";
 
 // import Sidebar Module
-@import "lib/hatena-module";
+@use "lib/hatena-module";
