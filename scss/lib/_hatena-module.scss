@@ -1,8 +1,11 @@
+@use "sass:string";
+@use "variable" as *;
+
 /**
  * カラーコードを SVG 内でも扱えるようにエンコードします。
  */
 @function encode-color-code($color-code) {
-    @return '%23' + str-slice('#{$color-code}', 2, -1);
+    @return '%23' + string.slice('#{$color-code}', 2, -1);
 }
 
 /* サイドバーモジュール */
